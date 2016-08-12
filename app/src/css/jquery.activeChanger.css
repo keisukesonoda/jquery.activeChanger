@@ -1,0 +1,174 @@
+@charset "UTF-8";
+.activeChanger p {
+  margin: 0;
+}
+
+.activeChanger .container {
+  width: 1030px;
+  margin: 0 auto;
+  background-color: black;
+  padding-bottom: 10px;
+}
+
+.activeChanger .changer {
+  min-height: 400px;
+}
+
+.activeChanger .changer > div {
+  width: 1030px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: scaleRotateOut .8s forwards;
+  animation: scaleRotateOut .8s forwards;
+  z-index: 0;
+  opacity: 0;
+}
+
+.activeChanger .changer > div.active {
+  -webkit-animation: scaleRotateIn 1s forwards;
+  animation: scaleRotateIn 1s forwards;
+  z-index: 20;
+}
+
+.activeChanger .changer > div .inner {
+  width: 100%;
+  height: 400px;
+  font-size: 24px;
+  line-height: 400px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.activeChanger .changer > div:nth-child(1) .inner {
+  background-color: red;
+}
+
+.activeChanger .changer > div:nth-child(2) .inner {
+  background-color: green;
+}
+
+.activeChanger .changer > div:nth-child(3) .inner {
+  background-color: blue;
+}
+
+.activeChanger .changer > div:nth-child(4) .inner {
+  background-color: yellow;
+}
+
+.activeChanger .changer > div:nth-child(5) .inner {
+  background-color: purple;
+}
+
+@-webkit-keyframes scaleRotateOut {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+@keyframes scaleRotateOut {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+@-webkit-keyframes scaleRotateIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleRotateIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.activeChanger .controlers {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.activeChanger .controlers .control {
+  cursor: pointer;
+  position: absolute;
+  top: 200px;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+}
+
+.activeChanger .controlers .control:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 0;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.activeChanger .controlers .control.prev {
+  left: -40px;
+}
+
+.activeChanger .controlers .control.prev:before {
+  content: "＜";
+}
+
+.activeChanger .controlers .control.next {
+  right: -40px;
+}
+
+.activeChanger .controlers .control.next:before {
+  content: "＞";
+}
+
+.activeChanger .pager {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.activeChanger .pager .pageNum {
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.activeChanger .pager .pageNum:not(:first-child) {
+  margin-left: 10px;
+}
+
+.activeChanger .pager .pageNum.current {
+  background-color: red;
+}

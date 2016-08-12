@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery.activeChanger demo</title>
+	<link rel="stylesheet" href="css/jquery.activeChanger.css">
+</head>
+<body class="activeChanger">
+
+	<div class="container">
+		<div id="changer" class="changer">
+			<div><div class="inner"><p>demo01</p></div></div>
+			<div><div class="inner"><p>demo02</p></div></div>
+			<div><div class="inner"><p>demo03</p></div></div>
+			<div><div class="inner"><p>demo04</p></div></div>
+			<div><div class="inner"><p>demo05</p></div></div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="js/jquery.activeChanger.js"></script>
+
+	<script type="text/javascript">
+		$('#changer').activeChanger({
+			delay: 2000,
+			duration: 10000,
+		});
+	</script>
+</body>
+</html>
