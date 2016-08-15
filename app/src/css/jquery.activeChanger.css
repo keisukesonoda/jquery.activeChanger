@@ -6,8 +6,7 @@
 .activeChanger .container {
   width: 1030px;
   margin: 0 auto;
-  background-color: black;
-  padding-bottom: 10px;
+  position: relative;
 }
 
 .activeChanger .changer {
@@ -15,49 +14,72 @@
 }
 
 .activeChanger .changer > div {
-  width: 1030px;
-  height: 400px;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.activeChanger .changer > div .main {
+  width: 1030px;
+  height: 400px;
+  font-size: 24px;
+  line-height: 400px;
+  text-align: center;
+  font-weight: bold;
+  -webkit-animation: fadeOut .8s forwards;
+  animation: fadeOut .8s forwards;
+  z-index: 0;
+  opacity: 0;
+}
+
+.activeChanger .changer > div.active .main {
+  -webkit-animation: fadeIn 1s forwards;
+  animation: fadeIn 1s forwards;
+  z-index: 20;
+}
+
+.activeChanger .changer > div .sub {
+  width: 300px;
+  height: 100px;
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
   -webkit-animation: scaleRotateOut .8s forwards;
   animation: scaleRotateOut .8s forwards;
   z-index: 0;
   opacity: 0;
 }
 
-.activeChanger .changer > div.active {
+.activeChanger .changer > div .sub p {
+  color: white;
+  font-size: 12px;
+}
+
+.activeChanger .changer > div.active .sub {
   -webkit-animation: scaleRotateIn 1s forwards;
   animation: scaleRotateIn 1s forwards;
   z-index: 20;
 }
 
-.activeChanger .changer > div .inner {
-  width: 100%;
-  height: 400px;
-  font-size: 24px;
-  line-height: 400px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.activeChanger .changer > div:nth-child(1) .inner {
+.activeChanger .changer > div:nth-child(1) .main {
   background-color: red;
 }
 
-.activeChanger .changer > div:nth-child(2) .inner {
+.activeChanger .changer > div:nth-child(2) .main {
   background-color: green;
 }
 
-.activeChanger .changer > div:nth-child(3) .inner {
+.activeChanger .changer > div:nth-child(3) .main {
   background-color: blue;
 }
 
-.activeChanger .changer > div:nth-child(4) .inner {
+.activeChanger .changer > div:nth-child(4) .main {
   background-color: yellow;
 }
 
-.activeChanger .changer > div:nth-child(5) .inner {
+.activeChanger .changer > div:nth-child(5) .main {
   background-color: purple;
 }
 
@@ -105,6 +127,42 @@
   }
 }
 
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .activeChanger .controlers {
   width: 100%;
   position: absolute;
@@ -149,8 +207,11 @@
 }
 
 .activeChanger .pager {
-  margin-top: 10px;
   text-align: center;
+  position: absolute;
+  top: 100px;
+  right: 200px;
+  z-index: 20;
 }
 
 .activeChanger .pager .pageNum {

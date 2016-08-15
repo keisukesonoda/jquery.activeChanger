@@ -1,52 +1,80 @@
 @charset "utf-8";
 
 .activeChanger {
+
 	p {margin: 0;}
 	.container {
 		width: 1030px;
 		margin: 0 auto;
-		background-color: black;
-		padding-bottom: 10px;
+		position: relative;
+		// background-color: black;
+		// padding-bottom: 10px;
 	}
 
 	.changer {
 		min-height: 400px;
 
 		> div {
-			width: 1030px;
-			height: 400px;
+			// width: 1030px;
+			// height: 400px;
 			position: absolute;
 			top: 0; left: 0;
 
-			animation: scaleRotateOut .8s forwards;
-			z-index: 0;
-
-			opacity: 0;
-
-			&.active {
-				animation: scaleRotateIn 1s forwards;
-				z-index: 20;
-			}
-
-			.inner {
-				width: 100%;
+			.main {
+				width: 1030px;
 				height: 400px;
 				font-size: 24px;
 				line-height: 400px;
 				text-align: center;
 				font-weight: bold;
+
+				// animation: scaleRotateOut .8s forwards;
+				animation: fadeOut .8s forwards;
+				z-index: 0;
+				opacity: 0;
 			}
+
+			&.active .main {
+				// animation: scaleRotateIn 1s forwards;
+				animation: fadeIn 1s forwards;
+				z-index: 20;
+			}
+
+
+			.sub {
+				width: 300px;
+				height: 100px;
+				background-color: #333;
+				position: absolute;
+				top: 0; right: 0;
+				padding: 20px;
+
+				animation: scaleRotateOut .8s forwards;
+				// animation: fadeOut .8s forwards;
+				z-index: 0;
+				opacity: 0;
+				p {
+					color: white;
+					font-size: 12px;
+				}
+			}
+
+			&.active .sub {
+				animation: scaleRotateIn 1s forwards;
+				// animation: fadeIn 1s forwards;
+				z-index: 20;
+			}
+
+
 			$colors: red, green, blue, yellow, purple;
 			@for $i from 1 through 5 {
 				&:nth-child(#{$i}) {
-					.inner {
+					.main {
 						background-color: nth($colors, $i);
 					}
 				}
 			}
 		}
-
-
 
 	}
 
@@ -69,10 +97,15 @@
 		}
 	}
 
-	// @keyframes fadeOut { 
-	// 	from { opacity: 1; }
-	// 	to { opacity: 0; }
-	// }
+	@keyframes fadeOut { 
+		from { opacity: 1; }
+		to { opacity: 0; }
+	}
+
+	@keyframes fadeIn { 
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
 
 
 	.controlers {
@@ -116,12 +149,41 @@
 	}
 
 
+	// .pager {
+	// 	$size: 10px;
+	// 	margin-top: $size;
+	// 	text-align: center;
+	// 	.pageNum {
+
+	// 		overflow: hidden;
+	// 		white-space: nowrap;
+	// 		text-indent: 100%;
+
+	// 		width: $size;
+	// 		height: $size;
+	// 		cursor: pointer;
+	// 		display: inline-block;
+	// 		border-radius: 100%;
+	// 		background-color: white;
+	// 		&:not(:first-child) {
+	// 			margin-left: $size;
+	// 		}
+	// 		&.current {
+	// 			background-color: red;
+	// 		}
+	// 	}
+	// }
+
 	.pager {
 		$size: 10px;
-		margin-top: $size;
+		// margin-top: $size;
 		text-align: center;
-		.pageNum {
+		position: absolute;
+		top: 100px; right: 200px;
+		z-index: 20;
 
+
+		.pageNum {
 			overflow: hidden;
 			white-space: nowrap;
 			text-indent: 100%;
@@ -140,5 +202,7 @@
 			}
 		}
 	}
+
+
 
 }
